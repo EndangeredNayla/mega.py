@@ -721,6 +721,7 @@ class Mega:
                 chunk = aes.decrypt(chunk)
                 progress_bar.update(chunk_size)
                 temp_output_file.write(chunk)
+                temp_output_file.close()
 
                 encryptor = AES.new(k_str, AES.MODE_CBC, iv_str)
                 for i in range(0, len(chunk) - 16, 16):
